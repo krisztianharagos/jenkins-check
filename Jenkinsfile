@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'linux'
+        label 'agent2'
     }
     environment {
         // AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
