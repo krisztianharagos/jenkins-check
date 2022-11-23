@@ -1,9 +1,23 @@
 pipeline {
-    agent { docker { image 'maven:3.8.6-openjdk-11-slim' } }
+    agent {
+        label 'linux'
+    }
+    environment {
+        // AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        // AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+        ENV_VAR1 = 'env_var1_value'
+    }
     stages {
-        stage('build') {
+        stage('Example stage 1') {
             steps {
-                sh 'mvn --version'
+                echo 'stage 1..'
+                echo "$ENV_VAR1"
+                echo '$ENV_VAR1'
+            }
+        }
+        stage('Example stage 2') {
+            steps {
+                echo 'stage 2..'
             }
         }
     }
